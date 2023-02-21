@@ -101,8 +101,9 @@ long long solve_recurrence (long long A[N][N], long long B[N][1], ll n)
 void Solve()
 {
 
-    long long A[N][N] = {{1, 2}, {1, 0}};
-
+    long long A[N][N] = {{1, 2}, {1, 0}};     
+//                                                a , b       f2       f3     state is dp[i] = 2*dp[i-2] + dp[i-1] 
+//                                                c , d    *  f1    =  f2    (af2 + bf1) = f3 , a = 2, b = 1 and cf2 + df1 = f2, c = 1, d = 0
     //Forming the Base Matrix
     long long B[N][1] = {{3}, {1}};
 
