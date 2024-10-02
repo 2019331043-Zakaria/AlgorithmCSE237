@@ -1,7 +1,7 @@
 /*
 * @Author: Zakaria 
 * @Date:   2023-02-07 23:40:51
-* @Last Modified time: 2023-02-07 23:41:18
+* @Last Modified time: 2024-10-02 22:29:41
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -114,3 +114,31 @@ int main ()
 }
 
 // https://www.codespeedy.com/matrix-exponentiation-in-c/
+// https://zobayer.blogspot.com/2010/11/matrix-exponentiation.html
+
+1. f(n) = a * f(n-1) + b * f(n-2)
+| a   b | x |  f(n)  | = | f(n+1) |
+| 1   0 |   | f(n-1) |   |  f(n)  |
+
+2. f(n) = a * f(n-1) + c * f(n-3).
+// | a  0  c |   |  f(n)  |   | f(n+1) |
+// | 1  0  0 | x | f(n-1) | = |  f(n)  |
+// | 0  1  0 |   | f(n-2) |   | f(n-1) |
+
+3. f(n) = f(n-1) + f(n-2) + c 
+
+// | 1  1  1 |   |  f(n)  |   | f(n+1) |
+// | 1  0  0 | x | f(n-1) | = |  f(n)  |
+// | 0  0  1 |   |    c   |   |    c   |
+
+4. f(n) = a * f(n-1) + c * f(n-3) + d * f(n-4) + e.
+// | a  0  c  d  1 |
+// | 1  0  0  0  0 |
+// | 0  1  0  0  0 |
+// | 0  0  1  0  0 |
+// | 0  0  0  0  1 |
+5.  g(n+1) = 2g(n) + 2g(n-1) + f(n+1) and f(n+2) = 2f(n+1) + 2f(n).
+// | 2  2  1  0 |
+// | 1  0  0  0 |
+// | 0  0  2  2 |
+// | 0  0  1  0 |
